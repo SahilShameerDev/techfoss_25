@@ -210,7 +210,10 @@ export default function WebGL() {
 
     assists.keyboardMesh.material = computerMaterial;
     computerGroup.add(assists.keyboardMesh);
-    
+    assists.shadowPlaneMesh.material = new THREE.MeshBasicMaterial({
+      color: 0xf120E0C,
+    });
+    computerGroup.add(assists.shadowPlaneMesh);
 
     computerGroup.position.x = controlProps.computerHorizontal;
     computerGroup.position.y = controlProps.computerHeight;
