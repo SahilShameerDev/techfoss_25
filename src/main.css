@@ -2,7 +2,7 @@
 @import url("./nav.css");
 
 :root {
-  --color: #525252;
+  --color: #000000b4;
 }
 
 @font-face {
@@ -22,7 +22,7 @@
 html,
 body {
   overflow-x: hidden;
-  background-color: #f6d4b1;
+  background-color: #ff7733cd;
   font-family: "chill", sans-serif;
   font-size: 18px;
   -webkit-text-size-adjust: 100%;
