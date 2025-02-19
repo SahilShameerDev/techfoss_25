@@ -39,7 +39,9 @@ function loadAssists(callback: (assists: Assists) => any) {
 
   manager.onLoad = function () {
     if (!loadingItemsDOM) return;
-    loadingItemsDOM.textContent = `Nearly There...`;
+    if (window.innerWidth < window.innerHeight) {
+      loadingItemsDOM.textContent = `Nearly There... Rotate Your Phone`;
+    }
 
     console.log("Loading complete!");
     window.setTimeout(() => {
