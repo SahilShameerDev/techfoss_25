@@ -38,19 +38,36 @@
   <script>
   window.addEventListener('load', function() {
     const rotateMessage = document.getElementById('rotate-message');
+    let hasScrolled = false;
     
     function checkOrientation() {
-      if(window.innerHeight > window.innerWidth && window.matchMedia("(max-width: 920px)").matches) {
-        rotateMessage.style.display = 'block';
+      if(!hasScrolled && window.innerHeight > window.innerWidth && window.matchMedia("(max-width: 920px)").matches) {
+      rotateMessage.style.display = 'block';
+      rotateMessage.style.opacity = '1';
+      rotateMessage.style.transition = 'opacity 0.5s ease';
       } else {
+      rotateMessage.style.opacity = '0';
+      setTimeout(() => {
         rotateMessage.style.display = 'none';
+      }, 500);
       }
     }
 
+    // Hide message on scroll
+    window.addEventListener('scroll', function() {
+      if (!hasScrolled) {
+      hasScrolled = true;
+      rotateMessage.style.opacity = '0';
+      setTimeout(() => {
+        rotateMessage.style.display = 'none';
+      }, 500);
+      }
+    });
+
     window.addEventListener('resize', checkOrientation);
     checkOrientation();
-  });
-  </script>
+    });
+    </script>
   <canvas class="webgl"></canvas>
 
   <div id="hero-backup">
