@@ -30,7 +30,27 @@
 
 <body>
   <div id="home"></div>
+  <div id="rotate-message" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.7); color: white; padding: 40px; width: 300px; height: 200px; border-radius: 10px; text-align: center; z-index: 9999;">
+    <img src="./public/images/rotate.png" style="width: 68px; height: 80px; margin-bottom: 10px;">
+    <p style="font-size: 13px;">Please rotate your device for <br> better experience</p>
+  </div>
 
+  <script>
+  window.addEventListener('load', function() {
+    const rotateMessage = document.getElementById('rotate-message');
+    
+    function checkOrientation() {
+      if(window.innerHeight > window.innerWidth && window.matchMedia("(max-width: 920px)").matches) {
+        rotateMessage.style.display = 'block';
+      } else {
+        rotateMessage.style.display = 'none';
+      }
+    }
+
+    window.addEventListener('resize', checkOrientation);
+    checkOrientation();
+  });
+  </script>
   <canvas class="webgl"></canvas>
 
   <div id="hero-backup">
@@ -224,6 +244,7 @@
           .event-card {
         min-width: 160px;
         height: 260px;
+        padding-left: 20px;
           }
           .events-container {
         padding: 1rem;
