@@ -635,8 +635,6 @@
           object-fit: cover;
         }
 
-        
-
         .sticky-cards {
           background-color:transparent;
           height: 100vh;
@@ -693,6 +691,14 @@
         width: 50%;
         height: 35%;
         left: 45%;
+          }
+        }
+
+        /* Added landscape mode styles */
+        @media screen and (orientation: landscape) {
+          .card {
+        height: 70%; /* Increased height in landscape */
+        left: 55%;
           }
         }
       </style>
